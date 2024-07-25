@@ -5,7 +5,7 @@ export class Usuario{
         public id:number,
         public nombre: string,
         public correoElectronico:string, //unico
-        public contrasena: string,
+        private contrasena: string,
         public direccion: string,
         public historialPedidos: Pedido[]
     ){}
