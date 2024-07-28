@@ -2,11 +2,12 @@ import { Body, Controller, Delete, Get, Param, Post, Res } from '@nestjs/common'
 import { UsuariosService } from './usuarios.service';
 import { Usuario } from 'src/models/Usuario';
 import { response, Response } from 'express';
-import { error } from 'console';
+import { UsuarioDto } from 'src/models/usuario.dto';
 
 @Controller('usuarios')
 export class UsuariosController {
 
+   
 
     constructor(private readonly servicio: UsuariosService) { }
 
@@ -34,13 +35,13 @@ export class UsuariosController {
 
     // Obtener todos los usuarios
     @Get()
-    obtenerUsuarios(): Usuario[] {
-        return this.servicio.obtenerUsuarios();
+    obtenerUsuarios():UsuarioDto[]{
+       return this.servicio.obtenerUsuarios();
     }
 
     // Eliminar un usuario según su id
     @Delete(':id')
-    eliminarUsuario(@Param('id') id: number): void {
+    eliminarUsuario(@Param('id') id: number){
         this.servicio.eliminarUsuario(id);
     }
 
