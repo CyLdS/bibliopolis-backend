@@ -8,13 +8,10 @@ export class LibrosController {
     constructor(private readonly servicio: LibrosService) { }
 
 
-
-
-
     // crear un libro
     @Post()
-    crearLibro(@Body() libro: Libro): void {
-        this.servicio.crearLibro;
+    crearLibro(@Body() libro: Libro) {
+       return this.servicio.crearLibro(libro);
 
     }
 
